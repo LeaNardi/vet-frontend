@@ -1,19 +1,25 @@
 table {
     width: 100%;
-  }
+}
 
-.title{
+.title {
     padding: 30;
     background-color: #666;
     text-align: center;
     color: white;
 }
 
-.container{
+.container {
     margin: 0 20%
 }
 
-td, th {
+td,
+th {
     width: 15%;
     text-align: center;
+}
+
+mat-form-field {
+    font-size: 14px;
+    width: 100%;
 }

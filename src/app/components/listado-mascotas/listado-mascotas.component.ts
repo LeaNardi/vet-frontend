@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Mascota } from '../../interfaces/mascota';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
 
   const elementosMascotas: Mascota[] = [
     {nombre: 'Simon', edad: 3, raza: 'Caniche', color: 'Dorado', peso: 5},
@@ -23,6 +24,7 @@ export class ListadoMascotasComponent implements OnInit, AfterViewInit {
     dataSource = new MatTableDataSource<Mascota>(elementosMascotas);
 
     @ViewChild(MatPaginator) paginator!: MatPaginator;
+    @ViewChild(MatSort) sort!: MatSort;
 
     ngOnInit(): void {
         
@@ -31,5 +33,11 @@ export class ListadoMascotasComponent implements OnInit, AfterViewInit {
     ngAfterViewInit(): void {
         this.dataSource.paginator = this.paginator;
         this.paginator._intl.itemsPerPageLabel = 'Items'
+        this.dataSource.sort = this.sort;
     }
+
+    applyFilter(event: Event) {
+        const filterValue = (event.target as HTMLInputElement).value;
+        this.dataSource.filter = filterValue.trim().toLowerCase();
+      }
 }
