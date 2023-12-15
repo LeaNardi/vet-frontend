@@ -7,6 +7,10 @@ import { AgregarEditarMascotaComponent } from './components/agregar-editar-masco
 import { ListadoMascotasComponent } from './components/listado-mascotas/listado-mascotas.component';
 import { VerMascotaComponent } from './components/ver-mascota/ver-mascota.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +20,10 @@ import { VerMascotaComponent } from './components/ver-mascota/ver-mascota.compon
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatTableModule,
+    BrowserAnimationsModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
