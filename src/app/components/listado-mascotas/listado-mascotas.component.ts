@@ -3,31 +3,37 @@ import { Mascota } from '../../interfaces/mascota';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
-  const elementosMascotas: Mascota[] = [
-    {nombre: 'Simon', edad: 3, raza: 'Caniche', color: 'Dorado', peso: 5},
-    {nombre: 'Ronnie', edad: 1, raza: 'Maltes', color: 'Blanco', peso: 1},
-    {nombre: 'Kume', edad: 6, raza: 'Labrador', color: 'Marron', peso: 28},
-    {nombre: 'Pepe', edad: 6, raza: 'Golden', color: 'Marron', peso: 23},
-    {nombre: 'Kume', edad: 6, raza: 'Labrador', color: 'Marron', peso: 28},
-    {nombre: 'Kume', edad: 6, raza: 'Labrador', color: 'Marron', peso: 28},
-    {nombre: 'Kume', edad: 6, raza: 'Labrador', color: 'Marron', peso: 28},
-  ];
+const elementosMascotas: Mascota[] = [
+    { nombre: 'Simon', edad: 3, raza: 'Caniche', color: 'Dorado', peso: 5 },
+    { nombre: 'Ronnie', edad: 1, raza: 'Maltes', color: 'Blanco', peso: 1 },
+    { nombre: 'Kume', edad: 6, raza: 'Labrador', color: 'Marron', peso: 28 },
+    { nombre: 'Pepe', edad: 6, raza: 'Golden', color: 'Marron', peso: 23 },
+    { nombre: 'Kume', edad: 6, raza: 'Labrador', color: 'Marron', peso: 28 },
+    { nombre: 'Kume', edad: 6, raza: 'Labrador', color: 'Marron', peso: 28 },
+    { nombre: 'Kume', edad: 6, raza: 'Labrador', color: 'Marron', peso: 28 },
+];
 
 @Component({
-  selector: 'app-listado-mascotas',
-  templateUrl: './listado-mascotas.component.html',
-  styleUrl: './listado-mascotas.component.css'
+    selector: 'app-listado-mascotas',
+    templateUrl: './listado-mascotas.component.html',
+    styleUrl: './listado-mascotas.component.css'
 })
 export class ListadoMascotasComponent implements OnInit, AfterViewInit {
     displayedColumns: string[] = ['nombre', 'edad', 'raza', 'color', 'peso', 'acciones'];
     dataSource = new MatTableDataSource<Mascota>(elementosMascotas);
+    loading = false;
 
     @ViewChild(MatPaginator) paginator!: MatPaginator;
     @ViewChild(MatSort) sort!: MatSort;
 
+    constructor(private _snackBar: MatSnackBar) {
+
+    }
+
     ngOnInit(): void {
-        
+
     }
 
     ngAfterViewInit(): void {
@@ -39,5 +45,17 @@ export class ListadoMascotasComponent implements OnInit, AfterViewInit {
     applyFilter(event: Event) {
         const filterValue = (event.target as HTMLInputElement).value;
         this.dataSource.filter = filterValue.trim().toLowerCase();
-      }
+    }
+
+    eliminarMascota() {
+        var message = "La mascota fue eliminada";
+        var action = '';
+        var config = {duration: 4000};
+
+        this.loading = true;
+        setTimeout(() => {
+            this.loading = false;
+            this._snackBar.open(message, action, config);
+        }, 3000);
+    }
 }

@@ -8,34 +8,45 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
+
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ProgressComponent } from './progress/progress.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
-    MatTooltipModule,
-    MatButtonModule,
-    MatCardModule
-  ],
-  exports:[
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
-    MatTooltipModule,
-    MatButtonModule,
-    MatCardModule
-  ]
+    declarations: [
+        ProgressComponent
+    ],
+    imports: [
+        CommonModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatIconModule,
+        MatTooltipModule,
+        MatButtonModule,
+        MatCardModule,
+        MatSnackBarModule,
+        MatProgressBarModule
+    ],
+    exports: [
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatIconModule,
+        MatTooltipModule,
+        MatButtonModule,
+        MatCardModule,
+        MatSnackBarModule,
+        ProgressComponent,
+        MatProgressBarModule
+    ]
 })
 export class SharedModule { }
