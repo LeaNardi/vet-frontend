@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+// Modulos
+import { ReactiveFormsModule } from '@angular/forms';
+
+// Angular Material
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -13,9 +17,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { ProgressComponent } from './progress/progress.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import {MatGridListModule} from '@angular/material/grid-list';
+
+// Componentes
+import { ProgressComponent } from './progress/progress.component';
 
 
 @NgModule({
@@ -35,7 +41,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
         MatCardModule,
         MatSnackBarModule,
         MatProgressBarModule,
-        MatGridListModule
+        MatGridListModule,
+        ReactiveFormsModule
     ],
     exports: [
         MatTableModule,
@@ -50,7 +57,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
         MatSnackBarModule,
         ProgressComponent,
         MatProgressBarModule,
-        MatGridListModule
+        MatGridListModule,
+        ReactiveFormsModule
     ]
 })
 export class SharedModule { }
