@@ -23,3 +23,22 @@ mat-form-field {
     font-size: 14px;
     width: 100%;
 }
+
+.search{
+    cursor: pointer;
+}
+
+.edit{
+    cursor: pointer;
+    color: #622fe4
+}
+
+.delete{
+    cursor: pointer;
+    color: #e4593e
+}
+
+.agregar{
+    font-size: 10px;
+    line-height: 28px;
+}

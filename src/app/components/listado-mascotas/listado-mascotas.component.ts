@@ -8,7 +8,7 @@ import { MatSort } from '@angular/material/sort';
     {nombre: 'Simon', edad: 3, raza: 'Caniche', color: 'Dorado', peso: 5},
     {nombre: 'Ronnie', edad: 1, raza: 'Maltes', color: 'Blanco', peso: 1},
     {nombre: 'Kume', edad: 6, raza: 'Labrador', color: 'Marron', peso: 28},
-    {nombre: 'Kume', edad: 6, raza: 'Labrador', color: 'Marron', peso: 28},
+    {nombre: 'Pepe', edad: 6, raza: 'Golden', color: 'Marron', peso: 23},
     {nombre: 'Kume', edad: 6, raza: 'Labrador', color: 'Marron', peso: 28},
     {nombre: 'Kume', edad: 6, raza: 'Labrador', color: 'Marron', peso: 28},
     {nombre: 'Kume', edad: 6, raza: 'Labrador', color: 'Marron', peso: 28},
@@ -20,7 +20,7 @@ import { MatSort } from '@angular/material/sort';
   styleUrl: './listado-mascotas.component.css'
 })
 export class ListadoMascotasComponent implements OnInit, AfterViewInit {
-    displayedColumns: string[] = ['nombre', 'edad', 'raza', 'color', 'peso'];
+    displayedColumns: string[] = ['nombre', 'edad', 'raza', 'color', 'peso', 'acciones'];
     dataSource = new MatTableDataSource<Mascota>(elementosMascotas);
 
     @ViewChild(MatPaginator) paginator!: MatPaginator;
