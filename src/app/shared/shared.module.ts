@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 // Modulos
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 // Angular Material
 import { MatTableModule } from '@angular/material/table';
@@ -24,6 +25,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { ProgressComponent } from './progress/progress.component';
 
 
+
 @NgModule({
     declarations: [
         ProgressComponent
@@ -42,7 +44,8 @@ import { ProgressComponent } from './progress/progress.component';
         MatSnackBarModule,
         MatProgressBarModule,
         MatGridListModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpClientModule
     ],
     exports: [
         MatTableModule,
@@ -58,7 +61,8 @@ import { ProgressComponent } from './progress/progress.component';
         ProgressComponent,
         MatProgressBarModule,
         MatGridListModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpClientModule
     ]
 })
 export class SharedModule { }

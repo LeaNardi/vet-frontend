@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MascotaService } from '../../services/mascota.service';
 
 const elementosMascotas: Mascota[] = [
     { nombre: 'Simon', edad: 3, raza: 'Caniche', color: 'Dorado', peso: 5 },
@@ -28,23 +29,51 @@ export class ListadoMascotasComponent implements OnInit, AfterViewInit {
     @ViewChild(MatPaginator) paginator!: MatPaginator;
     @ViewChild(MatSort) sort!: MatSort;
 
-    constructor(private _snackBar: MatSnackBar) {
+    constructor(private _snackBar: MatSnackBar, private _mascotaService: MascotaService) {
 
     }
 
     ngOnInit(): void {
-
+        this.obtenerMascotas();
     }
 
     ngAfterViewInit(): void {
         this.dataSource.paginator = this.paginator;
-        this.paginator._intl.itemsPerPageLabel = 'Items'
+        if(this.dataSource.data.length > 0){
+            this.paginator._intl.itemsPerPageLabel = 'Items'
+        }
         this.dataSource.sort = this.sort;
     }
 
     applyFilter(event: Event) {
         const filterValue = (event.target as HTMLInputElement).value;
         this.dataSource.filter = filterValue.trim().toLowerCase();
+    }
+
+    obtenerMascotas(){
+        this.loading = true;
+
+        this._mascotaService.getMascotas().subscribe({
+            next: (data) => {
+                this.dataSource.data = data;
+                this.loading = false;
+            },
+            error: (e) => this.loading = false,
+            // complete: () => console.info('Complete')
+        }
+
+        )
+
+        
+        // this._mascotaService.getMascotas().subscribe(data => {
+        //     this.dataSource.data = data;
+        //     this.loading = false;
+        // }, error => {
+        //     this.loading = false
+        //     alert('Ocurrio un error')
+        // }
+        // );
+        
     }
 
     eliminarMascota() {
