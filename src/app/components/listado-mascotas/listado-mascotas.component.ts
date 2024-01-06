@@ -57,6 +57,7 @@ export class ListadoMascotasComponent implements OnInit, AfterViewInit {
             next: (data) => {
                 this.dataSource.data = data;
                 this.loading = false;
+                console.log(data);
             },
             error: (e) => this.loading = false,
             // complete: () => console.info('Complete')
