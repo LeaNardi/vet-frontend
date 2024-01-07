@@ -77,15 +77,24 @@ export class ListadoMascotasComponent implements OnInit, AfterViewInit {
         
     }
 
-    eliminarMascota() {
-        var message = "La mascota fue eliminada";
+    eliminarMascota(id: number) {
+        var message = "La mascota fue eliminada con exito";
         var action = '';
         var config = {duration: 4000};
 
         this.loading = true;
-        setTimeout(() => {
-            this.loading = false;
-            this._snackBar.open(message, action, config);
-        }, 3000);
+
+        this._mascotaService.deleteMascota(id).subscribe(
+            () => {
+                this._snackBar.open(message, action, config);
+                this.loading = false;
+                this.obtenerMascotas(); // Para que refresque la tabla luego de eliminar
+            }
+        );
+
+        // setTimeout(() => {
+        //     this.loading = false;
+        //     this._snackBar.open(message, action, config);
+        // }, 3000);
     }
 }

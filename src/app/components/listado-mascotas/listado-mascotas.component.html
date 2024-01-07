@@ -54,7 +54,7 @@
             <td mat-cell *matCellDef="let element">
                 <mat-icon fontIcon="search" class="search" matTooltip="Ver" routerLink="/verMascota/{{ element.id }}"></mat-icon>
                 <mat-icon fontIcon="edit" class="edit" matTooltip="Editar" routerLink="/editarMascota/2"></mat-icon>
-                <mat-icon fontIcon="delete" class="delete" matTooltip="Eliminar" (click)="eliminarMascota()"></mat-icon>
+                <mat-icon fontIcon="delete" class="delete" matTooltip="Eliminar" (click)="eliminarMascota(element.id)"></mat-icon>
             </td>
         </ng-container>
 
