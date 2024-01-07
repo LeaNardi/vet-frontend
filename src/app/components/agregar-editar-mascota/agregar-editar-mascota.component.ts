@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Mascota } from '../../interfaces/mascota';
 import { MascotaService } from '../../services/mascota.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class AgregarEditarMascotaComponent implements OnInit {
 
     constructor(private fb: FormBuilder,
         private _mascotaService: MascotaService,
-        private _snackBar: MatSnackBar){
+        private _snackBar: MatSnackBar,
+        private router: Router){
         this.form = this.fb.group({
             nombre: ['',Validators.required],
             raza: ['',Validators.required],
@@ -45,6 +47,7 @@ export class AgregarEditarMascotaComponent implements OnInit {
 
         this._mascotaService.addMascota(mascota).subscribe(data => {
             this._snackBar.open(message, action, config);
+            this.router.navigate(['listMascotas']);
         })
     }
 }
