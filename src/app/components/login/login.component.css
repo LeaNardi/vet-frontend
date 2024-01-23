@@ -11,6 +11,7 @@
     max-width: 900px; 
     display: block;
     margin: auto; 
+    box-shadow: 12px 12px 4px rgba(0, 0, 0, 0.1);
   }
   
   .title {
@@ -19,6 +20,7 @@
     color:#9370DB; 
     background-color: #251b2e;
     font-size: 40px;
+    text-shadow: 8px 8px 5px rgba(0, 0, 0, 0.5);
   }
   
   /* Estilo del contenedor principal */
@@ -35,14 +37,15 @@
     max-width: 1000px; 
     text-align: center;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
+    box-shadow: 20px 20px 4px rgba(0, 0, 0, 0.1);
   }
 
   .Login {
     font-size: 35px;
     color: #251b2e;
     margin-bottom: 20px;
+    text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);
   }
   
   .Usuario {
@@ -60,6 +63,7 @@
     margin-top: 10px;
     font-size: 20px;
     color: #251b2e;
+    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.397);
   }
 
   
