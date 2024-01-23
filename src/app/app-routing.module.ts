@@ -3,14 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { ListadoMascotasComponent } from './components/listado-mascotas/listado-mascotas.component';
 import { AgregarEditarMascotaComponent } from './components/agregar-editar-mascota/agregar-editar-mascota.component';
 import { VerMascotaComponent } from './components/ver-mascota/ver-mascota.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
-    {path: '', redirectTo: 'listadoMascotas', pathMatch: 'full' },
+    {path: '', redirectTo: 'login', pathMatch: 'full' },
+    {path: 'login', component: LoginComponent},
     {path: 'listadoMascotas', component: ListadoMascotasComponent},
     {path: 'agregarMascota', component: AgregarEditarMascotaComponent},
     {path: 'verMascota/:id', component: VerMascotaComponent},
     {path: 'editarMascota/:id', component: AgregarEditarMascotaComponent},
-    {path: '**', redirectTo: 'listadoMascotas', pathMatch: 'full'}
+    {path: '**', redirectTo: 'login', pathMatch: 'full'}
 ];
 
 @NgModule({
