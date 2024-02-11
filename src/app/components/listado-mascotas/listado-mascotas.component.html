@@ -1,5 +1,8 @@
-<div class="title">
-    <h1>Listado de mascotas</h1>
+<body class="pagina">
+    <img src="assets/logovet.jpg" alt="Logo" class="logo">
+    
+<div>
+    <h1 class="listado">LISTADO DE MASCOTAS</h1>
 </div>
 
 <app-progress *ngIf="loading"> </app-progress>
@@ -7,7 +10,7 @@
 <div class="container" *ngIf="dataSource.data.length > 0">
 
     <mat-form-field>
-        <mat-label>Buscar</mat-label>
+        <mat-label class="Buscar">Buscar...</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="Mascota" #input autocomplete="off">
     </mat-form-field>
 
@@ -61,8 +64,14 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-    <mat-paginator [length]="100" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
+
+    <!-- Paginación -->
+    <mat-paginator  [length]="100" 
+                    [pageSize]="5" 
+                    [pageSizeOptions]="[5, 10, 25, 100]" 
+                    aria-label="Select page">
     </mat-paginator>
 
-
 </div>
+
+</body>

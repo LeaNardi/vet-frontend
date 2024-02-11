@@ -1,0 +1,36 @@
+<body class="pagina">
+<img src="assets/logovet.jpg" alt="Logo" class="logo">
+
+<div>
+  <h1 class="title"> ¡Bienvenido a NET Veterinaria! </h1>
+</div>
+
+<div class="container">
+  <mat-card class="card">
+    <mat-card-title class="Login">Iniciar sesión</mat-card-title>
+    <form>
+      <div>
+        <mat-form-field class="Usuario" appearance="outline">
+          <mat-label>Usuario</mat-label>
+          <mat-icon matPrefix>person</mat-icon>
+          <input matInput placeholder="jbcom12">
+          <mat-hint>Nombre de usuario</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field class="Contraseña" appearance="outline">
+          <mat-label>Contraseña</mat-label>
+          <mat-icon matPrefix>lock</mat-icon>
+          <input matInput type="password" placeholder="abc123">
+          <mat-hint>Contraseña</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <button mat-raised-button color="primary" routerLink="/listadoMascotas" >Ingresar</button>
+    </form>
+  </mat-card>
+</div>
+
+</body>
+

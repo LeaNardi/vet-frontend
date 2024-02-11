@@ -91,10 +91,5 @@ export class ListadoMascotasComponent implements OnInit, AfterViewInit {
                 this.obtenerMascotas(); // Para que refresque la tabla luego de eliminar
             }
         );
-
-        // setTimeout(() => {
-        //     this.loading = false;
-        //     this._snackBar.open(message, action, config);
-        // }, 3000);
     }
 }
