@@ -10,6 +10,7 @@ import { VerMascotaComponent } from './components/ver-mascota/ver-mascota.compon
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './components/login/login.component';
+import { UsuariosListadoComponent } from './usuarios-listado/usuarios-listado.component';
 
 
 
@@ -19,7 +20,8 @@ import { LoginComponent } from './components/login/login.component';
         AgregarEditarMascotaComponent,
         ListadoMascotasComponent,
         VerMascotaComponent,
-        LoginComponent
+        LoginComponent,
+        UsuariosListadoComponent
     ],
     imports: [
         BrowserModule,
