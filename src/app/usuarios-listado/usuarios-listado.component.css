@@ -66,3 +66,14 @@ mat-form-field {
     height: 50px;
     margin-right: -25px;
 }
+
+button {
+    width: 50%;
+    margin: auto;
+    margin-top: 30px;
+    font-size: 20px;
+    color: #251b2e;
+    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.397);
+    display: flex;
+    justify-self: center;
+  }
