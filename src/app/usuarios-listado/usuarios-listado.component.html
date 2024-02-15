@@ -1,0 +1,81 @@
+<body class="pagina">
+    <img src="assets/logovet.jpg" alt="Logo" class="logo">
+    
+<div>
+    <h1 class="listado">LISTADO DE USUARIOS</h1>
+</div>
+
+<app-progress *ngIf="loading"> </app-progress>
+
+<div class="container" *ngIf="dataSource.data.length > 0">
+
+    <mat-form-field>
+        <mat-label class="Buscar">Buscar...</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Usuario" #input autocomplete="off">
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- UserName Column -->
+        <ng-container matColumnDef="userName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> UserName </th>
+            <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
+        </ng-container>
+
+        <!-- Role Column -->
+        <ng-container matColumnDef="role">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Role </th>
+            <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+        </ng-container>
+
+        <!-- Email Column -->
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+
+        <!-- Nombre Column -->
+        <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+        </ng-container>
+
+        <!-- Apellido Column -->
+        <ng-container matColumnDef="apellido">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Apellido </th>
+            <td mat-cell *matCellDef="let element"> {{element.apellido}} </td>
+        </ng-container>
+
+        <!-- Acciones Column -->
+        <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> 
+                <!-- <button mat-raised-button color="primary" class="agregar" routerLink="/agregarUsuario">Nuevo Usuario</button>  -->
+            </th>
+            <td mat-cell *matCellDef="let element">
+                <!-- <mat-icon fontIcon="search" class="search" matTooltip="Ver" routerLink="/verUsuario/{{ element.id }}"></mat-icon> -->
+                <!-- <mat-icon fontIcon="edit" class="edit" matTooltip="Editar" routerLink="/editarUsuario/{{ element.id }}"></mat-icon> -->
+                <!-- <mat-icon fontIcon="delete" class="delete" matTooltip="Eliminar" (click)="eliminarUsuario(element.id)"></mat-icon> -->
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <!-- Paginación -->
+    <mat-paginator  [length]="100" 
+                    [pageSize]="5" 
+                    [pageSizeOptions]="[5, 10, 25, 100]" 
+                    aria-label="Select page">
+    </mat-paginator>
+
+</div>
+
+<div class="container">
+    <button mat-raised-button color="primary" routerLink="/dashboard">Volver</button>
+</div>
+
+</body>

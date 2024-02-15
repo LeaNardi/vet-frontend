@@ -1,19 +1,19 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Mascota } from '../../interfaces/mascota';
+import { MascotaService } from '../../services/mascota.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MascotaService } from '../../services/mascota.service';
 
 const elementosMascotas: Mascota[] = [
-    { nombre: 'Simon', edad: 3, raza: 'Caniche', color: 'Dorado', peso: 5 },
-    { nombre: 'Ronnie', edad: 1, raza: 'Maltes', color: 'Blanco', peso: 1 },
-    { nombre: 'Kume', edad: 6, raza: 'Labrador', color: 'Marron', peso: 28 },
-    { nombre: 'Pepe', edad: 6, raza: 'Golden', color: 'Marron', peso: 23 },
-    { nombre: 'Kume', edad: 6, raza: 'Labrador', color: 'Marron', peso: 28 },
-    { nombre: 'Kume', edad: 6, raza: 'Labrador', color: 'Marron', peso: 28 },
-    { nombre: 'Kume', edad: 6, raza: 'Labrador', color: 'Marron', peso: 28 },
+    { nombre: 'Simon1', edad: 3, raza: 'Caniche', color: 'Dorado', peso: 5 },
+    { nombre: 'Simon2', edad: 1, raza: 'Maltes', color: 'Blanco', peso: 1 },
+    { nombre: 'Simon3', edad: 6, raza: 'Labrador', color: 'Marron', peso: 28 },
+    { nombre: 'Simon4', edad: 6, raza: 'Golden', color: 'Marron', peso: 23 },
+    { nombre: 'Simon5', edad: 6, raza: 'Labrador', color: 'Marron', peso: 28 },
+    { nombre: 'Simon6', edad: 6, raza: 'Labrador', color: 'Marron', peso: 28 },
+    { nombre: 'Simon7', edad: 6, raza: 'Labrador', color: 'Marron', peso: 28 },
 ];
 
 @Component({

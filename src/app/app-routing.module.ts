@@ -4,14 +4,18 @@ import { ListadoMascotasComponent } from './components/listado-mascotas/listado-
 import { AgregarEditarMascotaComponent } from './components/agregar-editar-mascota/agregar-editar-mascota.component';
 import { VerMascotaComponent } from './components/ver-mascota/ver-mascota.component';
 import { LoginComponent } from './components/login/login.component';
+import { UsuariosListadoComponent } from './usuarios-listado/usuarios-listado.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full' },
     {path: 'login', component: LoginComponent},
+    {path: 'dashboard', component: DashboardComponent},
     {path: 'listadoMascotas', component: ListadoMascotasComponent},
     {path: 'agregarMascota', component: AgregarEditarMascotaComponent},
     {path: 'verMascota/:id', component: VerMascotaComponent},
     {path: 'editarMascota/:id', component: AgregarEditarMascotaComponent},
+    {path: 'listadoUsuarios', component: UsuariosListadoComponent},
     {path: '**', redirectTo: 'login', pathMatch: 'full'}
 ];
 
