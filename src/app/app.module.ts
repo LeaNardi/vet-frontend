@@ -12,6 +12,8 @@ import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './components/login/login.component';
 import { UsuariosListadoComponent } from './usuarios-listado/usuarios-listado.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { FormsModule } from '@angular/forms';
+
 
 
 
@@ -29,7 +31,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
-        SharedModule
+        SharedModule,
+        FormsModule,
     ],
     providers: [],
     bootstrap: [AppComponent]
