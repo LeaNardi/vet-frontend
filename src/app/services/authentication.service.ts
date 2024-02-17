@@ -3,6 +3,7 @@ import { environment } from '../../environments/environment';
 
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Session } from '../interfaces/session';
+import { iAuthRequest } from '../interfaces/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -15,12 +16,14 @@ export class AuthenticationService {
 
   private loggedIn: boolean = false;
 
-  async login(userName:string, password:string): Promise<boolean> {
-    const res = await fetch(this.myAppUrl + '/api/authentication/authenticate', {
+  async login(authentication:iAuthRequest): Promise<boolean> {
+    const res = await fetch(this.myAppUrl + 'api/authentication/authenticate', {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({userName:userName, password:password}),
+      body: JSON.stringify(authentication),
     });
+    console.log(JSON.stringify(authentication))
+    console.log(res)
     if(!res.ok) return false
     const token = await res.text();
     console.log(token)

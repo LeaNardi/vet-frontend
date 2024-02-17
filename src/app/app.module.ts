@@ -13,6 +13,7 @@ import { LoginComponent } from './components/login/login.component';
 import { UsuariosListadoComponent } from './usuarios-listado/usuarios-listado.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -33,6 +34,7 @@ import { FormsModule } from '@angular/forms';
         BrowserAnimationsModule,
         SharedModule,
         FormsModule,
+        HttpClientModule,
     ],
     providers: [],
     bootstrap: [AppComponent]
