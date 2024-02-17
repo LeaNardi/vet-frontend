@@ -67,7 +67,7 @@ export class AgregarEditarMascotaComponent implements OnInit {
         this._mascotaService.addMascota(mascota).subscribe(data => {
             this.loading = false;
             this._snackBar.open(message, action, config);
-            this.router.navigate(['listMascotas']);
+            this.router.navigate(['/listadoMascotas']);
         })
     }
 
@@ -80,7 +80,7 @@ export class AgregarEditarMascotaComponent implements OnInit {
         this._mascotaService.updateMascota(id, mascota).subscribe(() => {
             this.loading = false;
             this._snackBar.open(message, action, config);
-            this.router.navigate(['listMascotas']);
+            this.router.navigate(['/listadoMascotas']);
         })
     }
 

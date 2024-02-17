@@ -22,8 +22,6 @@ export class AuthenticationService {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(authentication),
     });
-    console.log(JSON.stringify(authentication))
-    console.log(res)
     if(!res.ok) return false
     const token = await res.text();
     console.log(token)
