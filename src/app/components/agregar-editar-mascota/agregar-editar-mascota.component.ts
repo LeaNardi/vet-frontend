@@ -15,7 +15,7 @@ export class AgregarEditarMascotaComponent implements OnInit {
     loading: boolean = false;
     form: FormGroup;
     id: number;
-    operacion: string = "Agregar";
+    operacion: string = "AGREGAR";
 
     constructor(private fb: FormBuilder,
         private _mascotaService: MascotaService,
