@@ -1,20 +1,23 @@
+<body class="pagina">
+    <img src="assets/logovet.jpg" alt="Logo" class="logo">
+
 <div class="title">
-    <h1>Ver Mascota</h1>
+    <h1 class="Ver"> VER MASCOTA</h1>
 </div>
 
 <app-progress *ngIf="loading"> </app-progress>
 
 <div class = "container" *ngIf="mascota != null">
     <mat-card class="card">
-        <mat-card-title>{{ mascota.nombre }}</mat-card-title>
-        <mat-card-content>
+        <mat-card-title class="Titulo">{{ mascota.nombre }}</mat-card-title>
+        <mat-card-content class="Datos">
             <p><strong> Raza:</strong> {{ mascota.raza }}</p>
             <p><strong> Color:</strong> {{ mascota.color }}</p>
             <p><strong> Peso:</strong> {{ mascota.peso }} kg</p>
             <p><strong> Edad:</strong> {{ mascota.edad }} años</p>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-raised-button routerLink="/listadoMascotas">Volver</button>
+            <button mat-raised-button color="primary" routerLink="/listadoMascotas" class="Volver">Volver</button>
         </mat-card-actions>
     </mat-card>
 </div>

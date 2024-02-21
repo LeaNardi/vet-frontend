@@ -19,17 +19,16 @@
     margin-top: 80px;
     color:#9370DB; 
     background-color: #251b2e;
-    font-size: 40px;
+    font-size: 50px;
     text-shadow: 8px 8px 5px rgba(0, 0, 0, 0.5);
   }
   
-  /* Estilo del contenedor principal */
   .container {
     margin-top: -135px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Ajusta según tus necesidades */
+    height: 100vh; 
   }
   
   .card {
