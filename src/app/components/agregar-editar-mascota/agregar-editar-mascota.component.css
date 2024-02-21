@@ -16,28 +16,51 @@
 
   .Agregado {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 80px;
     color:#9370DB; 
     background-color: #251b2e;
-    font-size: 30px;
+    font-size: 40px;
     text-shadow: 8px 8px 5px rgba(0, 0, 0, 0.5);
   }
 
-  table {
-    width: 100%;
-    box-shadow: 12px 12px 4px rgba(0, 0, 0, 0.1);
+
+.Subtitle {
+    font-size: 30px;
+    color: rgb(53, 52, 52);
+    margin-bottom: 15px;
+    text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);
+    color: #251b2e;
 }
 
-.card{
-    margin-top: 10px;
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+  }
+
+  .card {
+    width: 80%;
+    max-width: 1000px; 
     text-align: center;
-}
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 20px 20px 4px rgba(0, 0, 0, 0.1);
+  }
 
-.mat-folrm-field{
-    width: 100%;
-    margin: 5px;
-}
 
-.btnAceptar{
-    margin-left: 50px;
-}
+  .Aceptar {
+    margin-bottom: 10px;
+    width: 30%;
+    font-size: 20px;
+    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.397);
+    margin-right: 20px;
+   }
+ 
+   .Volver {
+    margin-bottom: 10px;
+    width: 30%;
+    font-size: 20px;
+    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.397);
+   }
+  

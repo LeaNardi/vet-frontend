@@ -9,7 +9,7 @@
 
 <div class="container">
     <mat-card class="card">
-        <mat-card-subtitle>Datos de la mascota</mat-card-subtitle>
+        <mat-card-subtitle class="Subtitle">Datos de la mascota</mat-card-subtitle>
         <form [formGroup]="form" (ngSubmit)="agregarEditarMascota()">
             <mat-grid-list cols="2" rowHeight="80px">
                 <mat-grid-tile [colspan]="2">
@@ -42,8 +42,8 @@
                     </mat-form-field>
                 </mat-grid-tile>
                 <mat-grid-tile [colspan]="2">
-                    <button mat-raised-button color="primary" class="btnAceptar" type="submit" [disabled]="form.invalid">Aceptar</button>
-                    <button mat-raised-button routerLink="/listadoMascotas">Volver</button>
+                    <button mat-raised-button color="primary" class="Aceptar" type="submit" [disabled]="form.invalid">Aceptar</button>
+                    <button mat-raised-button color="primary" routerLink="/listadoMascotas" class="Volver">Volver</button>
                     
                 </mat-grid-tile>
             </mat-grid-list>

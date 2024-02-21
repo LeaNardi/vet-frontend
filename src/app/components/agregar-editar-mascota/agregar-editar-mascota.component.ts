@@ -36,7 +36,7 @@ export class AgregarEditarMascotaComponent implements OnInit {
 
     ngOnInit(): void{
         if(this.id != 0){
-            this.operacion = "Editar";
+            this.operacion = "EDITAR";
             this.obtenerMascota(this.id);
         }
     }
