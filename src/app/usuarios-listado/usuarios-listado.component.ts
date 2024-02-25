@@ -5,6 +5,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthenticationService } from '../services/authentication.service';
+import { Router } from '@angular/router';
 
 const elementosUsuarios: Usuario[] = [
     { userName: 'User1', role: 'Admin', email: 'user1@gmail.com', nombre: 'User', apellido: 'One' },
@@ -24,7 +26,7 @@ export class UsuariosListadoComponent implements OnInit, AfterViewInit {
     @ViewChild(MatPaginator) paginator!: MatPaginator;
     @ViewChild(MatSort) sort!: MatSort;
 
-    constructor(private _snackBar: MatSnackBar, private _usuarioService: UsuarioService) {
+    constructor(private _snackBar: MatSnackBar, private _usuarioService: UsuarioService, private auth:AuthenticationService, private router:Router) {
 
     }
 
@@ -79,6 +81,10 @@ export class UsuariosListadoComponent implements OnInit, AfterViewInit {
         );
     }
 
+    async logout(){
+        const token = await this.auth.resetSession();
+        this.router.navigate(['/login']); 
+      }
 }
 
 
