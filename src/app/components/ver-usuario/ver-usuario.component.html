@@ -1,1 +1,23 @@
-<p>ver-usuario works!</p>
+<body class="pagina">
+    <img src="assets/logovet.jpg" alt="Logo" class="logo">
+
+<div class="title">
+    <h1 class="Ver"> VER USUARIO</h1>
+</div>
+
+<app-progress *ngIf="loading"> </app-progress>
+
+<div class = "container" *ngIf="usuario != null">
+    <mat-card class="card">
+        <mat-card-title class="Titulo">{{ usuario.nombre }}</mat-card-title>
+        <mat-card-content class="Datos">
+            <p><strong> Apellido:</strong> {{ usuario.apellido }}</p>
+            <p><strong> Usuario:</strong> {{ usuario.usuario }}</p>
+            <p><strong> Email:</strong> {{ usuario.email }} kg</p>
+            <p><strong> Rol:</strong> {{ usuario.rol }} años</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" routerLink="/listadoUsuarios" class="Volver">Volver</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

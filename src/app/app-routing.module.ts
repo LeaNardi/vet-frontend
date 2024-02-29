@@ -7,6 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { UsuariosListadoComponent } from './usuarios-listado/usuarios-listado.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AgregarEditarUsuarioComponent } from './components/agregar-editar-usuario/agregar-editar-usuario.component';
+import { VerUsuarioComponent } from './components/ver-usuario/ver-usuario.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,7 @@ const routes: Routes = [
     {path: 'listadoUsuarios', component: UsuariosListadoComponent},
     {path: 'agregarUsuario', component: AgregarEditarUsuarioComponent},
     {path: 'editarUsuario/:id', component: AgregarEditarUsuarioComponent},
-    {path: 'verUsuario/:id', component: UsuariosListadoComponent},
+    {path: 'verUsuario/:id', component: VerUsuarioComponent},
     {path: '**', redirectTo: 'login', pathMatch: 'full'}
 ];
 
