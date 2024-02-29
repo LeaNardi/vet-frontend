@@ -78,3 +78,11 @@ button {
     display: flex;
     justify-self: center;
   }
+
+  .Salir {
+    width: 10%;
+    margin-top: -670px;
+    margin-right: 70px;
+    font-size: 20px;
+    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.397);
+    }
