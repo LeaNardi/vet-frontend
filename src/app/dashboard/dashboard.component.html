@@ -10,10 +10,15 @@
             <mat-card-title class="Menu">Seleccione el menú</mat-card-title>
             <div>
                 <button class="Mascotas" mat-raised-button color="primary"
-                    routerLink="/listadoMascotas">Mascotas</button>
+                    routerLink="/listadoMascotas">
+                    <mat-icon>pets</mat-icon>Mascotas</button>
                 <button class="Usuarios" mat-raised-button color="primary"
-                    routerLink="/listadoUsuarios">Usuarios</button>
+                    routerLink="/listadoUsuarios">
+                    <mat-icon>person</mat-icon>Usuarios</button>
             </div>
 
-    <button class="Salir" mat-raised-button color="primary" type="button" (click)="logout()">Salir</button>
+            
+
+    <button class="Salir" mat-raised-button color="primary" type="button" (click)="confirmarSalir()">Salir</button>
+
 

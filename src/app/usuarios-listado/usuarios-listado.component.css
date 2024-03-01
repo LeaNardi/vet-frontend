@@ -31,14 +31,14 @@ table {
 }
 
 td{
-    width: 20%;
+    width: auto;
     text-align: center;
 }
 
 th {
-    width: 20%;
+    width: auto;
     text-align: center;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 mat-form-field {
@@ -79,11 +79,13 @@ button {
     display: flex;
     justify-self: center;
   }
-
+  
   .Salir {
     width: 10%;
-    margin-top: -670px;
-    margin-right: 70px;
+    top: 10px; 
+    right: 55px; 
     font-size: 20px;
     box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.397);
-    }
+    position: fixed; 
+    z-index: 999;
+}

@@ -50,23 +50,25 @@
 
   .Mascotas {
     margin-bottom: 10px;
-    width: 30%;
-    font-size: 20px;
+    width: 40%;
+    height: 60px;
+    font-size: 25px;
     box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.397);
     margin-right: 20px;
    }
  
    .Usuarios {
     margin-bottom: 10px;
-    width: 30%;
-    font-size: 20px;
+    width: 40%;
+    height: 60px;
+    font-size: 25px;
     box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.397);
    }
 
    .Salir {
     width: 60%;
     margin-top: 20px;
-    margin-left: 135px;
+    margin-left: 20%;
     font-size: 20px;
     box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.397);
     }
