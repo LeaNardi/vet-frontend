@@ -16,7 +16,7 @@ export class AgregarEditarUsuarioComponent implements OnInit{
 
   loading: boolean = false;
   form: FormGroup;
-  id: number;
+  id: string | null;
   operacion: string = "AGREGAR";
 
   constructor(private fb: FormBuilder,
@@ -32,12 +32,12 @@ export class AgregarEditarUsuarioComponent implements OnInit{
           rol: ['',Validators.required],
       })
 
-      this.id = Number(this.aRoute.snapshot.paramMap.get('id'));
+      this.id = (this.aRoute.snapshot.paramMap.get('id'));
       console.log(this.id)
   }
 
   ngOnInit(): void{
-      if(this.id != 0){
+      if(this.id != null){
           this.operacion = "EDITAR";
           this.obtenerUsuario(this.id);
       }
@@ -47,12 +47,12 @@ export class AgregarEditarUsuarioComponent implements OnInit{
       const usuario: Usuario = {
           nombre:  this.form.get('nombre')?.value,
           apellido: this.form.get('apellido')?.value,
-          usuario: this.form.get('usuario')?.value,
+          username: this.form.get('usuario')?.value,
           email: this.form.get('email')?.value,
-          rol: this.form.get('rol')?.value,
+          role: this.form.get('rol')?.value,
       };
       
-      if(this.id != 0){
+      if(this.id != null){
           usuario.id = this.id;
           this.editarUsuario(this.id, usuario);
       }else{
@@ -73,7 +73,7 @@ export class AgregarEditarUsuarioComponent implements OnInit{
       })
   }
 
-  editarUsuario(id: number, usuario: Usuario){
+  editarUsuario(id: string, usuario: Usuario){
       this.loading = true;
       var message = "El usuario fue modificado con exito";
       var action = '';
@@ -86,16 +86,16 @@ export class AgregarEditarUsuarioComponent implements OnInit{
       })
   }
 
-  obtenerUsuario(id: number){
+  obtenerUsuario(id: String){
       this.loading = true;
       this._usuarioService.getUsuario(this.id).subscribe({
           next: (data) => {
               this.form.setValue({
                   nombre: data.nombre,
                   apellido: data.apellido,
-                  usuario: data.usuario,
+                  usuario: data.username,
                   email: data.email,
-                  rol: data.rol
+                  rol: data.role
               })
               this.loading = false;
           },

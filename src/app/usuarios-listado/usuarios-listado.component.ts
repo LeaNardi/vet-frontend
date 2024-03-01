@@ -8,10 +8,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthenticationService } from '../services/authentication.service';
 import { Router } from '@angular/router';
 
-const elementosUsuarios: Usuario[] = [
-    { userName: 'User1', role: 'Admin', email: 'user1@gmail.com', nombre: 'User', apellido: 'One' },
-    { userName: 'User2', role: 'User', email: 'user2@gmail.com', nombre: 'User', apellido: 'Two' },
-];
+const elementosUsuarios: Usuario[] = [];
 
 @Component({
   selector: 'app-usuarios-listado',
@@ -27,7 +24,6 @@ export class UsuariosListadoComponent implements OnInit, AfterViewInit {
     @ViewChild(MatSort) sort!: MatSort;
 
     constructor(private _snackBar: MatSnackBar, private _usuarioService: UsuarioService, private auth:AuthenticationService, private router:Router) {
-
     }
 
     ngOnInit(): void {
@@ -53,9 +49,26 @@ export class UsuariosListadoComponent implements OnInit, AfterViewInit {
 
         this._usuarioService.getUsuarios().subscribe({
             next: (data) => {
-                this.dataSource.data = data;
+                console.log(data)
+                data.forEach(dataelement => {
+                    var nuevoUsuario : Usuario = {
+                        nombre: "string",
+                        apellido: "string",
+                        username: "string",
+                        email: "string",
+                        role: "string"
+                    };
+                    nuevoUsuario.id = dataelement.id;
+                    nuevoUsuario.apellido = dataelement.apellido;
+                    nuevoUsuario.nombre = dataelement.nombre;
+                    nuevoUsuario.username = dataelement.username;
+                    nuevoUsuario.email = dataelement.email;
+                    nuevoUsuario.role = dataelement.role;
+                    this.dataSource.data.push(nuevoUsuario);
+                });
+
+                console.log(this.dataSource.data)
                 this.loading = false;
-                console.log(data);
             },
             error: (e) => this.loading = false,
             // complete: () => console.info('Complete')
@@ -65,7 +78,7 @@ export class UsuariosListadoComponent implements OnInit, AfterViewInit {
         
     }
 
-    eliminarUsuario(id: number) {
+    eliminarUsuario(id: string) {
         var message = "El usuario fue eliminado con exito";
         var action = '';
         var config = {duration: 4000};
