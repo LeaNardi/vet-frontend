@@ -5,6 +5,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthenticationService } from '../../services/authentication.service';
+import { Router } from '@angular/router';
 
 const elementosMascotas: Mascota[] = [
     { nombre: 'Simon1', edad: 3, raza: 'Caniche', color: 'Dorado', peso: 5 },
@@ -29,7 +31,7 @@ export class ListadoMascotasComponent implements OnInit, AfterViewInit {
     @ViewChild(MatPaginator) paginator!: MatPaginator;
     @ViewChild(MatSort) sort!: MatSort;
 
-    constructor(private _snackBar: MatSnackBar, private _mascotaService: MascotaService) {
+    constructor(private _snackBar: MatSnackBar, private _mascotaService: MascotaService, private auth:AuthenticationService, private router:Router) {
 
     }
 
@@ -92,4 +94,9 @@ export class ListadoMascotasComponent implements OnInit, AfterViewInit {
             }
         );
     }
+
+    async logout(){
+        const token = await this.auth.resetSession();
+        this.router.navigate(['/login']); 
+      }
 }

@@ -28,6 +28,7 @@ export class AuthenticationService {
 
     const helper = new JwtHelperService();
     const decodedToken = helper.decodeToken(token);
+    console.log(decodedToken)
     const sub = decodedToken.sub;
     console.log(sub);
 

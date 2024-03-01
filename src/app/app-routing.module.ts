@@ -6,6 +6,9 @@ import { VerMascotaComponent } from './components/ver-mascota/ver-mascota.compon
 import { LoginComponent } from './components/login/login.component';
 import { UsuariosListadoComponent } from './usuarios-listado/usuarios-listado.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AgregarEditarUsuarioComponent } from './components/agregar-editar-usuario/agregar-editar-usuario.component';
+import { VerUsuarioComponent } from './components/ver-usuario/ver-usuario.component';
+
 
 const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -16,6 +19,9 @@ const routes: Routes = [
     {path: 'verMascota/:id', component: VerMascotaComponent},
     {path: 'editarMascota/:id', component: AgregarEditarMascotaComponent},
     {path: 'listadoUsuarios', component: UsuariosListadoComponent},
+    {path: 'agregarUsuario', component: AgregarEditarUsuarioComponent},
+    {path: 'editarUsuario/:id', component: AgregarEditarUsuarioComponent},
+    {path: 'verUsuario/:id', component: VerUsuarioComponent},
     {path: '**', redirectTo: 'login', pathMatch: 'full'}
 ];
 

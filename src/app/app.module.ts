@@ -14,7 +14,8 @@ import { UsuariosListadoComponent } from './usuarios-listado/usuarios-listado.co
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { VerUsuarioComponent } from './components/ver-usuario/ver-usuario.component';
+import { AgregarEditarUsuarioComponent } from './components/agregar-editar-usuario/agregar-editar-usuario.component';
 
 
 
@@ -26,7 +27,9 @@ import { HttpClientModule } from '@angular/common/http';
         VerMascotaComponent,
         LoginComponent,
         UsuariosListadoComponent,
-        DashboardComponent
+        DashboardComponent,
+        AgregarEditarUsuarioComponent,
+        VerUsuarioComponent,
     ],
     imports: [
         BrowserModule,

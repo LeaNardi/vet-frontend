@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
   }  
-
+  
   .logo {
     width: 100%;
     height: auto;
@@ -14,22 +14,22 @@
     box-shadow: 12px 12px 4px rgba(0, 0, 0, 0.1);
   }
 
-  .title {
+ .Ver {
     text-align: center;
     margin-top: 80px;
     color:#9370DB; 
     background-color: #251b2e;
-    font-size: 50px;
+    font-size: 40px;
     text-shadow: 8px 8px 5px rgba(0, 0, 0, 0.5);
   }
-  
+
   .container {
-    margin-top: -200px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Ajusta según tus necesidades */
+    margin-top: 40px;
   }
+
 
   .card {
     width: 80%;
@@ -38,36 +38,24 @@
     padding: 20px;
     border-radius: 30px;
     box-shadow: 20px 20px 4px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
   }
 
-  .Menu {
-    font-size: 35px;
-    color: #251b2e;
-    margin-bottom: 20px;
-    text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);
+  .Datos {
+    font-size: 20px;
+    margin-top: 40px;
   }
 
-  .Mascotas {
+  .Volver {
     margin-bottom: 10px;
     width: 30%;
     font-size: 20px;
     box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.397);
-    margin-right: 20px;
-   }
- 
-   .Usuarios {
-    margin-bottom: 10px;
-    width: 30%;
-    font-size: 20px;
-    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.397);
-   }
-
-   .Salir {
-    width: 60%;
+    margin: 0 auto;
     margin-top: 20px;
-    margin-left: 135px;
-    font-size: 20px;
-    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.397);
-    }
+   }
 
-   
+   .Titulo {
+    font-size: 50px;
+    margin-top: 20px;
+   }

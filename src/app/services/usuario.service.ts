@@ -10,7 +10,7 @@ import { AuthenticationService } from './authentication.service';
 })
 export class UsuarioService {
     private myAppUrl: string = environment.endpoint;
-    private myApiUrl: string = 'api/User/';
+    private myApiUrl: string = 'api/UserASP/';
 
     constructor(private http: HttpClient, private auth: AuthenticationService) { }
 
@@ -26,7 +26,7 @@ export class UsuarioService {
         );
     }
 
-    getUsuario(id: number): Observable<Usuario> {
+    getUsuario(id: String | null): Observable<Usuario> {
         return this.http.get<Usuario>(
             this.myAppUrl + this.myApiUrl + id,
             {
@@ -38,7 +38,7 @@ export class UsuarioService {
         );
     }
 
-    deleteUsuario(id: number): Observable<void> {
+    deleteUsuario(id: String | null): Observable<void> {
         return this.http.delete<void>(
             this.myAppUrl + this.myApiUrl + id,
             {
@@ -62,7 +62,7 @@ export class UsuarioService {
         );
     }
 
-    updateUsuario(id: number, usuario: Usuario): Observable<void> {
+    updateUsuario(id: String | null, usuario: Usuario): Observable<void> {
         console.log(this.myAppUrl + this.myApiUrl + id);
         console.log(usuario);
         return this.http.put<void>(
