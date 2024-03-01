@@ -35,12 +35,21 @@
                         <mat-label>Email</mat-label>
                         <input matInput placeholder="Email" autocomplete="off" formControlName="email">
                     </mat-form-field></mat-grid-tile>
-                <mat-grid-tile>
+                <!-- <mat-grid-tile>
                     <mat-form-field appearance="outline">
                         <mat-label>Rol</mat-label>
                         <input matInput placeholder="Rol" autocomplete="off" formControlName="rol">
                     </mat-form-field>
-                </mat-grid-tile>
+                </mat-grid-tile> -->
+                <mat-grid-tile>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Rol</mat-label>
+                        <mat-select formControlName="rol">
+                            <mat-option value="Administrador">Administrador</mat-option>
+                            <mat-option value="Secretario">Secretario</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-grid-tile>                
                 <mat-grid-tile [colspan]="2">
                     <button mat-raised-button color="primary" class="Aceptar" type="submit" [disabled]="form.invalid">Aceptar</button>
                     <button mat-raised-button color="primary" routerLink="/listadoUsuarios" class="Volver">Volver</button>

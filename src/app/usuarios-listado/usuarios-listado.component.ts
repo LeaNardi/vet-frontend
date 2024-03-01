@@ -46,6 +46,7 @@ export class UsuariosListadoComponent implements OnInit, AfterViewInit {
 
     obtenerUsuarios(){
         this.loading = true;
+        this.dataSource.data = []; // Vaciar la matriz antes de agregar usuarios nuevos
 
         this._usuarioService.getUsuarios().subscribe({
             next: (data) => {
