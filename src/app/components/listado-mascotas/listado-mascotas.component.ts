@@ -65,17 +65,7 @@ export class ListadoMascotasComponent implements OnInit, AfterViewInit {
         }
 
         )
-
-        
-        // this._mascotaService.getMascotas().subscribe(data => {
-        //     this.dataSource.data = data;
-        //     this.loading = false;
-        // }, error => {
-        //     this.loading = false
-        //     alert('Ocurrio un error')
-        // }
-        // );
-        
+       
     }
 
     eliminarMascota(id: number) {
@@ -98,4 +88,10 @@ export class ListadoMascotasComponent implements OnInit, AfterViewInit {
         const token = await this.auth.resetSession();
         this.router.navigate(['/login']); 
       }
+    
+      confirmarSalir() {
+        if (confirm('¿Estás seguro que deseas salir?')) {
+            this.logout(); // Llama a la función logout si se confirma la salida
+        }
+    }
 }

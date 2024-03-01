@@ -99,6 +99,12 @@ export class UsuariosListadoComponent implements OnInit, AfterViewInit {
         const token = await this.auth.resetSession();
         this.router.navigate(['/login']); 
       }
+    
+    confirmarSalir() {
+        if (confirm('¿Estás seguro que deseas salir?')) {
+            this.logout(); // Llama a la función logout si se confirma la salida
+        }
+    }
 }
 
 
