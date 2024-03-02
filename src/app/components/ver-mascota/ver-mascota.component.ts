@@ -5,6 +5,9 @@ import { Color, Mascota, Raza } from '../../interfaces/mascota';
 import { RazaService } from '../../services/raza.service';
 import { ColorService } from '../../services/color.service';
 import { forkJoin } from 'rxjs';
+import { MatTableDataSource } from '@angular/material/table';
+import { Historia } from '../../interfaces/historia';
+import { HistoriaService } from '../../services/historia.service';
 
 @Component({
     selector: 'app-ver-mascota',
@@ -15,16 +18,20 @@ export class VerMascotaComponent {
     id: number;
     mascota: Mascota | undefined;
     loading = false;
+    displayedColumns: string[] = ['fecha', 'veterinario', 'detalle'];
+    dataSource = new MatTableDataSource<Historia>();
 
     constructor(private _mascotaService: MascotaService,
         private aRoute: ActivatedRoute,
         private _razaService: RazaService,
-        private _colorService: ColorService) {
+        private _colorService: ColorService,
+        private _historiaService: HistoriaService) {
         this.id = parseInt(this.aRoute.snapshot.paramMap.get('id')!);
     }
 
     ngOnInit(): void { 
         this.obtenerMascota();
+        this.obtenerHistorias();
     }
 
     obtenerMascota() {
@@ -49,5 +56,18 @@ export class VerMascotaComponent {
             error: (e) => this.loading = false,
             // complete: () => console.info('Complete')
         })
+    }
+
+    obtenerHistorias() {
+        console.log("Entrando ObtenerHistorias");
+        this._historiaService.getHistorias(this.id).subscribe({
+            next: (data) => {
+                this.dataSource.data = data;
+            },
+            // error: (e) => this.loading = false,
+            // complete: () => console.info('Complete')
+        })
+        console.log("Saliendo ObtenerHistorias");
+
     }
 }
