@@ -1,5 +1,6 @@
 .pagina {
     font-family: 'Arial', sans-serif;
+    min-height: 110vh;
     background-color: #251b2e;
     margin: 0;
     padding: 0;
@@ -16,7 +17,7 @@
 
  .Ver {
     text-align: center;
-    margin-top: 80px;
+    margin-top: 45px;
     color:#9370DB; 
     background-color: #251b2e;
     font-size: 40px;
@@ -25,29 +26,41 @@
 
   .container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between; /* Alinear los elementos a los extremos */
     margin-top: 40px;
+    max-width: 1200px; /* Ajustar el ancho máximo del contenedor */
+    margin: auto; 
   }
 
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 40px;
-  }
-
-
-  .card {
-    width: 80%;
-    max-width: 1000px; 
+  .card, .completar{
+    width: 90%;
     text-align: center;
     padding: 20px;
-    border-radius: 30px;
+    border-radius: 5px;
     box-shadow: 20px 20px 4px rgba(0, 0, 0, 0.1);
-    font-size: 20px;
+    flex:1;
+ 
   }
 
+  .card{
+    max-width: 400px; 
+    width: 30px;
+  }
+ 
+  .completar {
+    max-width: 800px; 
+    height: 100px;
+    text-align: center;
+    box-shadow: 20px 20px 4px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; 
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  .card2{
+    box-shadow: 20px 20px 4px rgba(0, 0, 0, 0.1);
+  }
+  
   .Datos {
     font-size: 20px;
     margin-top: 40px;
@@ -65,4 +78,8 @@
    .Titulo {
     font-size: 50px;
     margin-top: 20px;
+   }
+
+   .Aceptar {
+    margin-bottom: auto;
    }
