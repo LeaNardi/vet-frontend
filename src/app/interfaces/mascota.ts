@@ -7,12 +7,21 @@ export interface Mascota {
     peso: number
 }
 
+export interface MascotaResponse {
+    id?: number,
+    nombre: string,
+    edad: number,
+    razaId: number,
+    colorId: number,
+    peso: number
+}
+
 export interface Raza {
-    razaid: number,
-    razanombre: string
+    razaId: number,
+    razaNombre: string
 }
 
 export interface Color {
-    colorid: number,
-    colornombre: string
+    colorId: number,
+    colorNombre: string
 }

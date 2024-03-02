@@ -64,11 +64,11 @@ export class AgregarEditarMascotaComponent implements OnInit {
         var action = '';
         var config = {duration: 4000};
 
-        this._mascotaService.addMascota(mascota).subscribe(data => {
-            this.loading = false;
-            this._snackBar.open(message, action, config);
-            this.router.navigate(['/listadoMascotas']);
-        })
+        // this._mascotaService.addMascota(mascota).subscribe(data => {
+        //     this.loading = false;
+        //     this._snackBar.open(message, action, config);
+        //     this.router.navigate(['/listadoMascotas']);
+        // })
     }
 
     editarMascota(id: number, mascota: Mascota){
@@ -77,27 +77,27 @@ export class AgregarEditarMascotaComponent implements OnInit {
         var action = '';
         var config = {duration: 4000};
 
-        this._mascotaService.updateMascota(id, mascota).subscribe(() => {
-            this.loading = false;
-            this._snackBar.open(message, action, config);
-            this.router.navigate(['/listadoMascotas']);
-        })
+        // this._mascotaService.updateMascota(id, mascota).subscribe(() => {
+        //     this.loading = false;
+        //     this._snackBar.open(message, action, config);
+        //     this.router.navigate(['/listadoMascotas']);
+        // })
     }
 
     obtenerMascota(id: number){
         this.loading = true;
-        this._mascotaService.getMascota(this.id).subscribe({
-            next: (data) => {
-                this.form.setValue({
-                    nombre: data.nombre,
-                    raza: data.raza,
-                    color: data.raza,
-                    edad: data.edad,
-                    peso: data.peso
-                })
-                this.loading = false;
-            },
-            error: (e) => this.loading = false,
-        })
+    //     this._mascotaService.getMascota(this.id).subscribe({
+    //         next: (data) => {
+    //             this.form.setValue({
+    //                 nombre: data.nombre,
+    //                 raza: data.raza,
+    //                 color: data.raza,
+    //                 edad: data.edad,
+    //                 peso: data.peso
+    //             })
+    //             this.loading = false;
+    //         },
+    //         error: (e) => this.loading = false,
+    //     })
     }
 }
