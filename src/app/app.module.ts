@@ -16,7 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { VerUsuarioComponent } from './components/ver-usuario/ver-usuario.component';
 import { AgregarEditarUsuarioComponent } from './components/agregar-editar-usuario/agregar-editar-usuario.component';
-
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -38,6 +38,7 @@ import { AgregarEditarUsuarioComponent } from './components/agregar-editar-usuar
         SharedModule,
         FormsModule,
         HttpClientModule,
+        MatSelectModule,
     ],
     providers: [],
     bootstrap: [AppComponent]

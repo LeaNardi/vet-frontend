@@ -30,6 +30,7 @@ export class AgregarEditarUsuarioComponent implements OnInit{
           usuario: ['',Validators.required],
           email: ['',Validators.required],
           rol: ['',Validators.required],
+          contrasena: ['',Validators.required],
       })
 
       this.id = (this.aRoute.snapshot.paramMap.get('id'));
@@ -50,6 +51,7 @@ export class AgregarEditarUsuarioComponent implements OnInit{
           username: this.form.get('usuario')?.value,
           email: this.form.get('email')?.value,
           role: this.form.get('rol')?.value,
+          password: this.form.get('contrasena')?.value,
       };
       
       if(this.id != null){
@@ -95,7 +97,8 @@ export class AgregarEditarUsuarioComponent implements OnInit{
                   apellido: data.apellido,
                   usuario: data.username,
                   email: data.email,
-                  rol: data.role
+                  rol: data.role,
+               //   contrasena: data.contrasena,
               })
               this.loading = false;
           },

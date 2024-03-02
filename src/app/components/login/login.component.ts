@@ -12,6 +12,7 @@ import { NgForm } from '@angular/forms';
 export class LoginComponent implements OnInit {
     userName: String;
     password: String;
+    hidePassword: boolean = true;
 
     constructor(private auth:AuthenticationService, private router:Router) {
         this.userName ="";
@@ -27,4 +28,8 @@ export class LoginComponent implements OnInit {
         const token = await this.auth.login(form.value);
         if(token) this.router.navigate(['/dashboard']); 
       }
+      
+    togglePasswordVisibility(): void {
+      this.hidePassword = !this.hidePassword; // Cambiar el valor de la variable para ocultar o mostrar la contraseña
+    }
 }

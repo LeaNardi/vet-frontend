@@ -52,7 +52,7 @@ export class UsuarioService {
 
     addUsuario(usuario: Usuario): Observable<Usuario> {
         return this.http.post<Usuario>(
-            this.myAppUrl + this.myApiUrl, usuario,
+            this.myAppUrl + this.myApiUrl +"?role="+usuario.role, usuario,
             {
                 headers: new HttpHeaders({
                     'Content-type': 'application/json',
@@ -66,7 +66,7 @@ export class UsuarioService {
         console.log(this.myAppUrl + this.myApiUrl + id);
         console.log(usuario);
         return this.http.put<void>(
-            this.myAppUrl + this.myApiUrl + id, usuario,
+            this.myAppUrl + this.myApiUrl + id +"?role="+usuario.role, usuario, // VER
             {
                 headers: new HttpHeaders({
                     'Content-type': 'application/json',

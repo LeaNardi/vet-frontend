@@ -12,7 +12,7 @@
         <mat-card-subtitle class="Subtitle">Datos del usuario</mat-card-subtitle>
         <form [formGroup]="form" (ngSubmit)="agregarEditarUsuario()">
             <mat-grid-list cols="2" rowHeight="80px">
-                <mat-grid-tile [colspan]="2">
+                <mat-grid-tile>
                     <mat-form-field appearance="outline">
                         <mat-label>Nombre</mat-label>
                         <input matInput placeholder="Nombre" autocomplete="off" formControlName="nombre">
@@ -26,7 +26,7 @@
                 </mat-grid-tile>
                 <mat-grid-tile>
                     <mat-form-field appearance="outline">
-                        <mat-label>usuario</mat-label>
+                        <mat-label>Usuario</mat-label>
                         <input matInput placeholder="Usuario" autocomplete="off" formControlName="usuario">
                     </mat-form-field>
                 </mat-grid-tile>
@@ -34,17 +34,26 @@
                     <mat-form-field appearance="outline">
                         <mat-label>Email</mat-label>
                         <input matInput placeholder="Email" autocomplete="off" formControlName="email">
-                    </mat-form-field></mat-grid-tile>
+                    </mat-form-field>
+                </mat-grid-tile>
                 <mat-grid-tile>
                     <mat-form-field appearance="outline">
                         <mat-label>Rol</mat-label>
-                        <input matInput placeholder="Rol" autocomplete="off" formControlName="rol">
+                        <mat-select formControlName="rol">
+                            <mat-option value="Administrador">Administrador</mat-option>
+                            <mat-option value="Secretario">Secretario</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-grid-tile>     
+                <mat-grid-tile>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Contraseña</mat-label>
+                        <input matInput placeholder="Contraseña" autocomplete="off" formControlName="contrasena">
                     </mat-form-field>
                 </mat-grid-tile>
                 <mat-grid-tile [colspan]="2">
                     <button mat-raised-button color="primary" class="Aceptar" type="submit" [disabled]="form.invalid">Aceptar</button>
-                    <button mat-raised-button color="primary" routerLink="/listadoUsuarios" class="Volver">Volver</button>
-                    
+                    <button mat-raised-button color="primary" routerLink="/listadoUsuarios" class="Volver">Volver</button>                   
                 </mat-grid-tile>
             </mat-grid-list>
 

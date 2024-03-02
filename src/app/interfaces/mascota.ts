@@ -6,3 +6,22 @@ export interface Mascota {
     color: string,
     peso: number
 }
+
+export interface MascotaResponse {
+    mascotaId?: number,
+    nombre: string,
+    edad: number,
+    razaId: number,
+    colorId: number,
+    peso: number
+}
+
+export interface Raza {
+    razaId: number,
+    razaNombre: string
+}
+
+export interface Color {
+    colorId: number,
+    colorNombre: string
+}
