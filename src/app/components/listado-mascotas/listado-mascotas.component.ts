@@ -112,11 +112,9 @@ export class ListadoMascotasComponent implements OnInit, AfterViewInit {
                 console.log(data);
             },
             error: (e) => this.loading = false,
-            // complete: () => console.info('Complete')
         }
 
         )
-
     }
 
     eliminarMascota(id: number) {
@@ -137,6 +135,12 @@ export class ListadoMascotasComponent implements OnInit, AfterViewInit {
 
     async logout() {
         const token = await this.auth.resetSession();
-        this.router.navigate(['/login']);
+        this.router.navigate(['/login']); 
+      }
+    
+      confirmarSalir() {
+        if (confirm('¿Estás seguro que deseas salir?')) {
+            this.logout(); // Llama a la función logout si se confirma la salida
+        }
     }
 }
