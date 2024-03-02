@@ -8,7 +8,7 @@ export interface Mascota {
 }
 
 export interface MascotaResponse {
-    id?: number,
+    mascotaId?: number,
     nombre: string,
     edad: number,
     razaId: number,

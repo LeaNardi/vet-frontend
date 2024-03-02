@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Color, Mascota, Raza } from '../../interfaces/mascota';
 import { RazaService } from '../../services/raza.service';
 import { ColorService } from '../../services/color.service';
+import { forkJoin } from 'rxjs';
 
 @Component({
     selector: 'app-ver-mascota',
@@ -27,41 +28,23 @@ export class VerMascotaComponent {
     }
 
     obtenerMascota() {
-        let razas: Raza[];
-        let colores: Color[];
-
         this.loading = true;
-        this._razaService.getRazas().subscribe({
-            next: (data) => {
-                razas = data;
-                console.log(data);
-            },
-            error: (e) => this.loading = false,
-        }
-        )
-
-        this._colorService.getColores().subscribe({
-            next: (data) => {
-                colores = data;
-                console.log(data);
-            },
-            error: (e) => this.loading = false,
-        }
-        )
-
 
         this._mascotaService.getMascota(this.id).subscribe({
             next: (data) => {
-                this.mascota = {
-                    ...data,
-                    raza: razas.filter(x => x.razaId == data.razaId)[0].razaNombre,
-                    color: colores.filter(x => x.colorId == data.colorId)[0].colorNombre
-                }
+                const razaObservable = this._razaService.getRazas();
+                const colorObservable = this._colorService.getColores();
 
-
-
-                // this.mascota = data;
-                // this.loading = false;
+                forkJoin([razaObservable, colorObservable]).subscribe(
+                    ([raza, color]) => {
+                        this.mascota = {
+                            ...data,
+                            raza: raza.filter(x => x.razaId == data.razaId)[0].razaNombre,
+                            color: color.filter(x => x.colorId == data.colorId)[0].colorNombre
+                        }
+                    }
+                )
+                this.loading = false;
             },
             error: (e) => this.loading = false,
             // complete: () => console.info('Complete')

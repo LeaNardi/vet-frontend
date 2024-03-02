@@ -45,7 +45,7 @@ export class ListadoMascotasComponent implements OnInit, AfterViewInit {
         // if (this.dataSource.data.length > 0) {
         //     this.paginator._intl.itemsPerPageLabel = 'Items'
         // }
-        this.paginator._intl.itemsPerPageLabel = 'Items'
+        // this.paginator._intl.itemsPerPageLabel = 'Items'
         this.dataSource.sort = this.sort;
     }
 
