@@ -2,7 +2,7 @@
     <img src="assets/logovet.jpg" alt="Logo" class="logo">
 
 <div class="title">
-    <h1 class="Ver"> VER MASCOTA</h1>
+    <h1 class="Ver"> CARTILLA CLÍNICA VETERINARIA</h1>
 </div>
 
 <app-progress *ngIf="loading"> </app-progress>
@@ -17,10 +17,11 @@
             <p><strong> Peso:</strong> {{ mascota.peso }} kg</p>
             <p><strong> Edad:</strong> {{ mascota.edad }} años</p>
         </mat-card-content>
-        <mat-card-actions>
-            <button mat-raised-button color="primary" routerLink="/listadoMascotas" class="Volver">Volver</button>
-        </mat-card-actions>
+        
     </mat-card>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" routerLink="/listadoMascotas" class="Volver">Volver</button>
+    </mat-card-actions>
     </div>
     
     <div class = "container2">
@@ -41,8 +42,8 @@
                     </mat-grid-tile>
                     <mat-grid-tile>
                         <mat-form-field appearance="outline">
-                            <mat-label>Detalle</mat-label>
-                            <input matInput placeholder="Detalle" autocomplete="off" formControlName="detalle">
+                            <mat-label>Historia clínica</mat-label>
+                            <input matInput placeholder="Historia clínica" autocomplete="off" formControlName="detalle">
                         </mat-form-field>
                     </mat-grid-tile>
                     <mat-grid-tile [colspan]="3">
