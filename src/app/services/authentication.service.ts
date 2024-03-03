@@ -30,11 +30,12 @@ export class AuthenticationService {
     const decodedToken = helper.decodeToken(token);
     console.log(decodedToken)
     const sub = decodedToken.sub;
-    console.log(sub);
+    const role = decodedToken.roles;
 
     if (!token) return false;
     this.setSession(token);
     this.setUserId(sub);
+    this.setUserRole(role);
     return true;
   }
 
@@ -54,6 +55,18 @@ export class AuthenticationService {
 
   setUserId(id : string){
     localStorage.setItem('Id', id);
+  }
+
+  setUserRole(role : string){
+    localStorage.setItem('Role', role);
+  }
+
+  getUserRole(){
+    return localStorage.getItem('Role');
+  }
+
+  isAdmin(){
+    return this.getUserRole() == 'Administrador'
   }
 
   setSession(token: any, expiresTimeHours: number = 1) {
