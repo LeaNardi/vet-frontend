@@ -81,6 +81,11 @@ export class AgregarEditarUsuarioComponent implements OnInit{
       var action = '';
       var config = {duration: 4000};
 
+      if (usuario.password == "********"){
+        usuario.password = "empty";
+      }
+      console.log("usuario luego de chequear password");
+      console.log(usuario);
       this._usuarioService.updateUsuario(id, usuario).subscribe(() => {
           this.loading = false;
           this._snackBar.open(message, action, config);
@@ -98,7 +103,7 @@ export class AgregarEditarUsuarioComponent implements OnInit{
                   usuario: data.username,
                   email: data.email,
                   rol: data.role,
-               //   contrasena: data.contrasena,
+                  contrasena: "********",
               })
               this.loading = false;
           },

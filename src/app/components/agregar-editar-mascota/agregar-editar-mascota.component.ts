@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Mascota, MascotaResponse } from '../../interfaces/mascota';
+import { Mascota, MascotaResponse, Raza, Color } from '../../interfaces/mascota';
 import { MascotaService } from '../../services/mascota.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -20,6 +20,8 @@ export class AgregarEditarMascotaComponent implements OnInit {
     id: number;
     operacion: string = "AGREGAR";
     mascotaResponse?: MascotaResponse;
+    razas: Raza[] = [];
+    colores: Color[] = [];
 
 
     constructor(private fb: FormBuilder,
@@ -46,6 +48,8 @@ export class AgregarEditarMascotaComponent implements OnInit {
             this.operacion = "EDITAR";
             this.obtenerMascota(this.id);
         }
+        this.loadRazas();
+        this.loadColores();
     }
 
     agregarEditarMascota() {
@@ -108,7 +112,7 @@ export class AgregarEditarMascotaComponent implements OnInit {
                     razaId: raza.filter(x => x.razaNombre == mascota.raza)[0].razaId,
                     colorId: color.filter(x => x.colorNombre == mascota.color)[0].colorId
                 }
-                console.log("!!!!",this.mascotaResponse);
+                console.log("!!!!", this.mascotaResponse);
 
                 this._mascotaService.updateMascota(id, this.mascotaResponse).subscribe(() => {
                     this.loading = false;
@@ -143,33 +147,22 @@ export class AgregarEditarMascotaComponent implements OnInit {
                         console.log(mascota)
                     }
                 )
-                
+
                 this.loading = false;
             },
             error: (e) => this.loading = false,
         })
     }
-    // obtenerMascota2(id: number) {
-    //     this.loading = true;
 
-    //     this._mascotaService.getMascota(this.id).subscribe({
-    //         next: (data) => {
-    //             const razaObservable = this._razaService.getRazas();
-    //             const colorObservable = this._colorService.getColores();
+    loadRazas() {
+        this._razaService.getRazas().subscribe((razas) => {
+            this.razas = razas;
+        });
+    }
 
-    //             forkJoin([razaObservable, colorObservable]).subscribe(
-    //                 ([raza, color]) => {
-    //                     mascota = {
-    //                         ...data,
-    //                         raza: raza.filter(x => x.razaId == data.razaId)[0].razaNombre,
-    //                         color: color.filter(x => x.colorId == data.colorId)[0].colorNombre
-    //                     }
-    //                 }
-    //             )
-    //             this.loading = false;
-    //         },
-    //         error: (e) => this.loading = false,
-    //         // complete: () => console.info('Complete')
-    //     })
-    // }
+    loadColores() {
+        this._colorService.getColores().subscribe((colores) => {
+            this.colores = colores;
+        });
+    }
 }
