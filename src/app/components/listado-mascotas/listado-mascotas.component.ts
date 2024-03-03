@@ -50,8 +50,11 @@ export class ListadoMascotasComponent implements OnInit, AfterViewInit {
     }
 
     applyFilter(event: Event) {
-        const filterValue = (event.target as HTMLInputElement).value;
-        this.dataSource.filter = filterValue.trim().toLowerCase();
+        const filterValue = (event.target as HTMLInputElement).value.trim().toLowerCase();
+        this.dataSource.filterPredicate = (data: Mascota, filter: string) => {
+            return data.nombre.toLowerCase().includes(filter) || data.nombre.toLowerCase().startsWith(filter);
+        };
+        this.dataSource.filter = filterValue;
     }
 
     obtenerMascotas() {

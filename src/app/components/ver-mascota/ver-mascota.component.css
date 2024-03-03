@@ -1,4 +1,5 @@
 .pagina {
+  min-height: 300vh;
     font-family: 'Arial', sans-serif;
     min-height: 110vh;
     background-color: #251b2e;
