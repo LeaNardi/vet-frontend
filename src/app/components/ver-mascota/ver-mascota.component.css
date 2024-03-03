@@ -4,30 +4,31 @@
     background-color: #251b2e;
     margin: 0;
     padding: 0;
-  }  
-  
-  .logo {
+}
+
+.logo {
     width: 100%;
     height: auto;
-    max-width: 900px; 
+    max-width: 900px;
     display: block;
-    margin: auto; 
+    margin: auto;
     box-shadow: 12px 12px 4px rgba(0, 0, 0, 0.1);
-  }
+}
 
- .Ver {
+.Ver {
     text-align: center;
     margin-top: 45px;
     color:#9370DB; 
     background-color: #251b2e;
     font-size: 40px;
     text-shadow: 8px 8px 5px rgba(0, 0, 0, 0.5);
-  }
+}
 
-  .container {
+.container {
     display: flex;
     justify-content: space-between; /* Alinear los elementos a los extremos */
     margin-top: 40px;
+
     max-width: 1200px; /* Ajustar el ancho máximo del contenedor */
     margin: auto; 
   }
@@ -50,6 +51,7 @@
   .completar {
     max-width: 800px; 
     height: 100px;
+
     text-align: center;
     box-shadow: 20px 20px 4px rgba(0, 0, 0, 0.1);
     background-color: #ffffff; 
@@ -62,24 +64,27 @@
   }
   
   .Datos {
+
     font-size: 20px;
     margin-top: 40px;
-  }
+}
 
-  .Volver {
+.Volver {
     margin-bottom: 10px;
     width: 30%;
     font-size: 20px;
     box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.397);
     margin: 0 auto;
     margin-top: 20px;
-   }
+}
 
-   .Titulo {
+.Titulo {
     font-size: 50px;
     margin-top: 20px;
+
    }
 
    .Aceptar {
     margin-bottom: auto;
    }
+

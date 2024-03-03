@@ -21,6 +21,7 @@
             <button mat-raised-button color="primary" routerLink="/listadoMascotas" class="Volver">Volver</button>
         </mat-card-actions>
     </mat-card>
+
     </div>
     
     <div class = "container2">
@@ -53,6 +54,7 @@
             </form>
         </div>
 
+
     <div class = "card2">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
 
@@ -75,5 +77,6 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
     </div>
+
 
 </div>
