@@ -21,7 +21,7 @@
         </mat-card-actions>
     </mat-card>
 </div>
-<div class = "container2">
+<div>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
 
         <!--- Note that these columns can be defined in any order.
@@ -50,7 +50,7 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 
-    <form [formGroup]="formHist" (ngSubmit)="agregarHistoria()">
+    <form class="form-historia" [formGroup]="formHist" (ngSubmit)="agregarHistoria()">
         <mat-grid-list cols="3" rowHeight="80px">
             <mat-grid-tile>
                 <mat-form-field appearance="outline">

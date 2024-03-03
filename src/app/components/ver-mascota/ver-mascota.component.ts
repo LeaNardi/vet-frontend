@@ -42,11 +42,12 @@ export class VerMascotaComponent {
     ngOnInit(): void { 
         this.obtenerMascota();
         this.obtenerHistorias();
+        this.formHist.get('fecha')?.patchValue(formatDate(new Date(),'yyyy-MM-dd HH:mm','en-US'))
+
         
     }
 
     ngAfterViewInit(): void {
-        this.formHist.get('fecha')?.patchValue(formatDate(new Date(),'yyyy-MM-dd HH:mm','en-US'))
 
     }
 

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent {
 
-    constructor(private auth:AuthenticationService, private router:Router) {
+    constructor(public auth:AuthenticationService, private router:Router) {
     }
 
     async logout(){
