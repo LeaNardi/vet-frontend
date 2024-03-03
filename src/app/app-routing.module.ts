@@ -8,6 +8,7 @@ import { UsuariosListadoComponent } from './usuarios-listado/usuarios-listado.co
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AgregarEditarUsuarioComponent } from './components/agregar-editar-usuario/agregar-editar-usuario.component';
 import { VerUsuarioComponent } from './components/ver-usuario/ver-usuario.component';
+import { administradorGuard } from './administrador.guard';
 
 
 const routes: Routes = [
@@ -18,10 +19,10 @@ const routes: Routes = [
     {path: 'agregarMascota', component: AgregarEditarMascotaComponent},
     {path: 'verMascota/:id', component: VerMascotaComponent},
     {path: 'editarMascota/:id', component: AgregarEditarMascotaComponent},
-    {path: 'listadoUsuarios', component: UsuariosListadoComponent},
-    {path: 'agregarUsuario', component: AgregarEditarUsuarioComponent},
-    {path: 'editarUsuario/:id', component: AgregarEditarUsuarioComponent},
-    {path: 'verUsuario/:id', component: VerUsuarioComponent},
+    {path: 'listadoUsuarios', component: UsuariosListadoComponent, canActivate: [administradorGuard]},
+    {path: 'agregarUsuario', component: AgregarEditarUsuarioComponent, canActivate: [administradorGuard]},
+    {path: 'editarUsuario/:id', component: AgregarEditarUsuarioComponent, canActivate: [administradorGuard]},
+    {path: 'verUsuario/:id', component: VerUsuarioComponent, canActivate: [administradorGuard]},
     {path: '**', redirectTo: 'login', pathMatch: 'full'}
 ];
 

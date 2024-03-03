@@ -17,7 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { VerUsuarioComponent } from './components/ver-usuario/ver-usuario.component';
 import { AgregarEditarUsuarioComponent } from './components/agregar-editar-usuario/agregar-editar-usuario.component';
 import { MatSelectModule } from '@angular/material/select';
-
+import {PermissionsService} from './administrador.guard';
 
 @NgModule({
     declarations: [
@@ -40,7 +40,7 @@ import { MatSelectModule } from '@angular/material/select';
         HttpClientModule,
         MatSelectModule,
     ],
-    providers: [],
+    providers: [PermissionsService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
