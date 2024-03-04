@@ -72,7 +72,6 @@ export class VerMascotaComponent {
                 this.loading = false;
             },
             error: (e) => this.loading = false,
-            // complete: () => console.info('Complete')
         })
     }
 
@@ -81,8 +80,6 @@ export class VerMascotaComponent {
             next: (data) => {
                 this.dataSource.data = data;
             },
-            // error: (e) => this.loading = false,
-            // complete: () => console.info('Complete')
         })
 
     }

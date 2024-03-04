@@ -11,7 +11,6 @@ import { RazaService } from '../../services/raza.service';
 import { ColorService } from '../../services/color.service';
 import { forkJoin, map } from 'rxjs';
 
-// const elementosMascotas: Mascota[] = [];
 
 @Component({
     selector: 'app-listado-mascotas',
@@ -42,10 +41,10 @@ export class ListadoMascotasComponent implements OnInit, AfterViewInit {
 
     ngAfterViewInit(): void {
         this.dataSource.paginator = this.paginator;
-        // if (this.dataSource.data.length > 0) {
-        //     this.paginator._intl.itemsPerPageLabel = 'Items'
-        // }
-        // this.paginator._intl.itemsPerPageLabel = 'Items'
+        if (this.dataSource.data.length > 0) {
+             this.paginator._intl.itemsPerPageLabel = 'Items'
+            }
+        this.paginator._intl.itemsPerPageLabel = 'Items'
         this.dataSource.sort = this.sort;
     }
 
@@ -58,28 +57,8 @@ export class ListadoMascotasComponent implements OnInit, AfterViewInit {
     }
 
     obtenerMascotas() {
-        // let razas: Raza[];
-        // let colores: Color[];
 
         this.loading = true;
-
-        // this._razaService.getRazas().subscribe({
-        //     next: (data) => {
-        //         razas = data;
-        //         console.log(data);
-        //     },
-        //     error: (e) => this.loading = false,
-        // }
-        // )
-
-        // this._colorService.getColores().subscribe({
-        //     next: (data) => {
-        //         colores = data;
-        //         console.log(data);
-        //     },
-        //     error: (e) => this.loading = false,
-        // }
-        // )
 
         this._mascotaService.getMascotas().subscribe({
             next: (data: MascotaResponse[]) => {
@@ -101,15 +80,6 @@ export class ListadoMascotasComponent implements OnInit, AfterViewInit {
                         console.log("!!!!",this.dataSource.data)
                     }
                 );
-
-
-                // this.dataSource.data = data.map((mascota) => {
-                //     return {
-                //         ...mascota,
-                //         raza: razas.filter(x => x.razaid == mascota.razaId)[0].razanombre,
-                //         color: colores.filter(x => x.colorid == mascota.colorId)[0].colornombre
-                //     }
-                // })
 
                 this.loading = false;
                 console.log(data);
