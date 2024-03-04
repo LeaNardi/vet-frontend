@@ -20,7 +20,10 @@ export class LoginComponent implements OnInit {
 
      }
     ngOnInit(): void {
-
+        if (this.auth.isLoggedIn()){
+            console.log("User is logged in");
+            this.router.navigate(['/dashboard']);
+        }
     }
   
     async login(form:NgForm){

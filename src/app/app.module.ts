@@ -10,14 +10,15 @@ import { VerMascotaComponent } from './components/ver-mascota/ver-mascota.compon
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './components/login/login.component';
-import { UsuariosListadoComponent } from './usuarios-listado/usuarios-listado.component';
+import { UsuariosListadoComponent } from './components/usuarios-listado/usuarios-listado.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { VerUsuarioComponent } from './components/ver-usuario/ver-usuario.component';
 import { AgregarEditarUsuarioComponent } from './components/agregar-editar-usuario/agregar-editar-usuario.component';
 import { MatSelectModule } from '@angular/material/select';
-import {PermissionsService} from './administrador.guard';
+import {PermissionsService} from './guards/administrador.guard';
+import { UserService } from './guards/user.guard';
 
 @NgModule({
     declarations: [
@@ -40,7 +41,7 @@ import {PermissionsService} from './administrador.guard';
         HttpClientModule,
         MatSelectModule,
     ],
-    providers: [PermissionsService],
+    providers: [PermissionsService, UserService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

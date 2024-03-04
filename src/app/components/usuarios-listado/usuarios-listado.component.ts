@@ -1,11 +1,11 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { Usuario } from '../interfaces/usuario';
-import { UsuarioService } from '../services/usuario.service';
+import { Usuario } from '../../interfaces/usuario';
+import { UsuarioService } from '../../services/usuario.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AuthenticationService } from '../services/authentication.service';
+import { AuthenticationService } from '../../services/authentication.service';
 import { Router } from '@angular/router';
 
 const elementosUsuarios: Usuario[] = [];

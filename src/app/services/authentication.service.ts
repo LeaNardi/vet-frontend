@@ -36,11 +36,12 @@ export class AuthenticationService {
     this.setSession(token);
     this.setUserId(sub);
     this.setUserRole(role);
+    this.setIsLoggedIn();
     return true;
   }
 
   isLoggedIn(){
-    return this.loggedIn;
+    return localStorage.getItem('IsLoggedIn') == "true";
   }
 
   getSession(): Session {
@@ -59,6 +60,10 @@ export class AuthenticationService {
 
   setUserRole(role : string){
     localStorage.setItem('Role', role);
+  }
+
+  setIsLoggedIn(){
+    localStorage.setItem('IsLoggedIn', "true");
   }
 
   getUserRole(){
@@ -94,6 +99,8 @@ export class AuthenticationService {
   resetSession() {
     localStorage.removeItem('session');
     localStorage.removeItem('Id');
+    localStorage.removeItem('Role');
+    localStorage.removeItem('IsLoggedIn');
     this.loggedIn = false;
   }
 
