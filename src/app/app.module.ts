@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AgregarEditarMascotaComponent } from './components/agregar-editar-mascota/agregar-editar-mascota.component';
 import { ListadoMascotasComponent } from './components/listado-mascotas/listado-mascotas.component';
@@ -19,8 +19,6 @@ import { AgregarEditarUsuarioComponent } from './components/agregar-editar-usuar
 import { MatSelectModule } from '@angular/material/select';
 import { PermissionsService } from './guards/administrador.guard';
 import { UserService } from './guards/user.guard';
-import { MatPaginatorModule } from '@angular/material/paginator';
-
 
 @NgModule({
     declarations: [
@@ -42,7 +40,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
         FormsModule,
         HttpClientModule,
         MatSelectModule,
-        MatPaginatorModule,
     ],
     providers: [PermissionsService, UserService],
     bootstrap: [AppComponent]

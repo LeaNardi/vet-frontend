@@ -62,13 +62,6 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 
-    <!-- Paginación -->
-    <mat-paginator  
-                    [length]="dataSource.data.length" 
-                    [pageSize]="dataSource.data.length"
-                    aria-label="Select page">
-    </mat-paginator> 
-
 </div>
 
 <div class="container">
