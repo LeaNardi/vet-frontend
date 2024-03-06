@@ -31,7 +31,7 @@ export class MiusuarioComponent implements OnInit{
           nombre: ['',Validators.required],
           apellido: ['',Validators.required],
           usuario: ['',Validators.required],
-          email: ['',Validators.required],
+          email: ['',[Validators.required, Validators.email]],
           rol: ['',Validators.required],
           contrasena: ['',Validators.required],
       })
