@@ -4,26 +4,29 @@ import { Usuario } from '../../interfaces/usuario';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { AuthenticationService } from '../../services/authentication.service';
+import { MiusuarioService } from '../../services/miusuario.service';
 
 
 @Component({
-  selector: 'app-agregar-editar-usuario',
-  templateUrl: './agregar-editar-usuario.component.html',
-  styleUrl: './agregar-editar-usuario.component.css'
+  selector: 'app-miusuario',
+  templateUrl: './miusuario.component.html',
+  styleUrl: './miusuario.component.css'
 })
-export class AgregarEditarUsuarioComponent implements OnInit{
+export class MiusuarioComponent implements OnInit{
 
   loading: boolean = false;
   form: FormGroup;
-  id: string | null;
+  id: string | undefined;
   operacion: string = "AGREGAR";
 
   constructor(private fb: FormBuilder,
       private _usuarioService: UsuarioService,
+      private _miUsuarioService: MiusuarioService,
       private _snackBar: MatSnackBar,
       private router: Router,
-      private aRoute: ActivatedRoute){
+      private aRoute: ActivatedRoute,
+      private auth: AuthenticationService){
       this.form = this.fb.group({
           nombre: ['',Validators.required],
           apellido: ['',Validators.required],
@@ -32,70 +35,47 @@ export class AgregarEditarUsuarioComponent implements OnInit{
           rol: ['',Validators.required],
           contrasena: ['',Validators.required],
       })
-
-      this.id = (this.aRoute.snapshot.paramMap.get('id'));
+      this.id = this.auth.getUserId()?.toString();
       console.log(this.id)
   }
 
   ngOnInit(): void{
-      if(this.id != null){
-          this.operacion = "EDITAR";
-          this.obtenerUsuario(this.id);
-      }
+    this.obtenerUsuario();
   }
 
-  agregarEditarUsuario(){
-      const usuario: Usuario = {
-          nombre:  this.form.get('nombre')?.value,
-          apellido: this.form.get('apellido')?.value,
-          username: this.form.get('usuario')?.value,
-          email: this.form.get('email')?.value,
-          role: this.form.get('rol')?.value,
-          password: this.form.get('contrasena')?.value,
-      };
-      
-      if(this.id != null){
-          usuario.id = this.id;
-          this.editarUsuario(this.id, usuario);
-      }else{
-          this.agregarUsuario(usuario);
-      }
-  }
-
-  agregarUsuario(usuario: Usuario){
-      this.loading = true;
-      var message = "El usuario fue creado con exito";
-      var action = '';
-      var config = {duration: 4000};
-
-      this._usuarioService.addUsuario(usuario).subscribe(data => {
-          this.loading = false;
-          this._snackBar.open(message, action, config);
-          this.router.navigate(['/listadoUsuarios']);
-      })
-  }
-
-  editarUsuario(id: string, usuario: Usuario){
+  editarUsuario(){
       this.loading = true;
       var message = "El usuario fue modificado con exito";
       var action = '';
       var config = {duration: 4000};
+
+      let usuario: Usuario = {
+        nombre:  this.form.get('nombre')?.value,
+        apellido: this.form.get('apellido')?.value,
+        username: this.form.get('usuario')?.value,
+        email: this.form.get('email')?.value,
+        role: this.form.get('rol')?.value,
+        password: this.form.get('contrasena')?.value,
+    };
+    usuario.id = this.id;
+
 
       if (usuario.password == "********"){
         usuario.password = "empty";
       }
       console.log("usuario luego de chequear password");
       console.log(usuario);
-      this._usuarioService.updateUsuario(id, usuario).subscribe(() => {
+      this._miUsuarioService.updateUsuario(this.id, usuario).subscribe(() => {
           this.loading = false;
           this._snackBar.open(message, action, config);
-          this.router.navigate(['/listadoUsuarios']);
+            this.obtenerUsuario();
+
       })
   }
 
-  obtenerUsuario(id: String){
+  obtenerUsuario(){
       this.loading = true;
-      this._usuarioService.getUsuario(this.id).subscribe({
+      this._miUsuarioService.getUsuario(this.id).subscribe({
           next: (data) => {
               this.form.setValue({
                   nombre: data.nombre,
@@ -105,6 +85,8 @@ export class AgregarEditarUsuarioComponent implements OnInit{
                   rol: data.role,
                   contrasena: "********",
               })
+              this.form.get('usuario')?.disable();
+              this.form.get('rol')?.disable();
               this.loading = false;
           },
           error: (e) => this.loading = false,

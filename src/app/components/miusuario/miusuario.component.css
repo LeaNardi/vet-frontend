@@ -1,11 +1,10 @@
 .pagina {
     font-family: 'Arial', sans-serif;
-    min-height: 110vh;
     background-color: #251b2e;
     margin: 0;
     padding: 0;
   }  
-
+  
   .logo {
     width: 100%;
     height: auto;
@@ -15,21 +14,29 @@
     box-shadow: 12px 12px 4px rgba(0, 0, 0, 0.1);
   }
 
-  .title {
+  .Agregado {
     text-align: center;
-    margin-top: 80px;
+    margin-top: 40px;
     color:#9370DB; 
     background-color: #251b2e;
-    font-size: 50px;
+    font-size: 40px;
     text-shadow: 8px 8px 5px rgba(0, 0, 0, 0.5);
   }
-  
-  .container {
-    margin-top: -200px;
+
+
+.Subtitle {
+    font-size: 30px;
+    color: rgb(53, 52, 52);
+    margin-bottom: 15px;
+    text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);
+    color: #251b2e;
+}
+
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Ajusta según tus necesidades */
+    margin-top: 40px;
   }
 
   .card {
@@ -41,47 +48,19 @@
     box-shadow: 20px 20px 4px rgba(0, 0, 0, 0.1);
   }
 
-  .Menu {
-    font-size: 35px;
-    color: #251b2e;
-    margin-bottom: 20px;
-    text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);
-  }
 
-  .Mascotas {
+  .Aceptar {
     margin-bottom: 10px;
     width: 30%;
-    height: 60px;
-    font-size: 25px;
-    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.397);
-    margin-right: 10px;
-   }
- 
-   .Usuarios {
-    margin-bottom: 10px;
-    width: 30%;
-    height: 60px;
-    font-size: 25px;
-    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.397);
-    margin-left: 10px;
-    margin-right: 10px;
-   }
-
-   .MiUsuario {
-    margin-bottom: 10px;
-    width: 30%;
-    height: 60px;
-    font-size: 25px;
-    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.397);
-    margin-left: 10px;
-   }
-
-   .Salir {
-    width: 60%;
-    margin-top: 20px;
-    margin-left: 20%;
     font-size: 20px;
     box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.397);
-    }
-
-   
+    margin-right: 20px;
+   }
+ 
+   .Volver {
+    margin-bottom: 10px;
+    width: 30%;
+    font-size: 20px;
+    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.397);
+   }
+  

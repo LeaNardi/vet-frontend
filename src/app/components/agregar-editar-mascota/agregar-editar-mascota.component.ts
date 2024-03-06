@@ -35,8 +35,8 @@ export class AgregarEditarMascotaComponent implements OnInit {
             nombre: ['', Validators.required],
             raza: ['', Validators.required],
             color: ['', Validators.required],
-            edad: ['', Validators.required],
-            peso: ['', Validators.required],
+            edad: ['', [Validators.required, Validators.min(0)]],
+            peso: ['', [Validators.required, Validators.min(0)]],
         })
 
         this.id = Number(this.aRoute.snapshot.paramMap.get('id'));

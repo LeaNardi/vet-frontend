@@ -10,6 +10,7 @@ import { AgregarEditarUsuarioComponent } from './components/agregar-editar-usuar
 import { VerUsuarioComponent } from './components/ver-usuario/ver-usuario.component';
 import { administradorGuard } from './guards/administrador.guard';
 import { userGuard } from './guards/user.guard';
+import { MiusuarioComponent } from './components/miusuario/miusuario.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
     {path: 'agregarUsuario', component: AgregarEditarUsuarioComponent, canActivate: [administradorGuard]},
     {path: 'editarUsuario/:id', component: AgregarEditarUsuarioComponent, canActivate: [administradorGuard]},
     {path: 'verUsuario/:id', component: VerUsuarioComponent, canActivate: [administradorGuard]},
+    {path: 'miUsuario', component: MiusuarioComponent, canActivate: [userGuard]},
     {path: '**', redirectTo: 'login', pathMatch: 'full'}
 ];
 
