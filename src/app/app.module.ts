@@ -17,7 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { VerUsuarioComponent } from './components/ver-usuario/ver-usuario.component';
 import { AgregarEditarUsuarioComponent } from './components/agregar-editar-usuario/agregar-editar-usuario.component';
 import { MatSelectModule } from '@angular/material/select';
-import {PermissionsService} from './guards/administrador.guard';
+import { PermissionsService } from './guards/administrador.guard';
 import { UserService } from './guards/user.guard';
 
 @NgModule({

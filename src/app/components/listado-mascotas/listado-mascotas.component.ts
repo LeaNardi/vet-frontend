@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Color, Mascota, MascotaResponse, Raza } from '../../interfaces/mascota';
 import { MascotaService } from '../../services/mascota.service';
-import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -22,7 +21,6 @@ export class ListadoMascotasComponent implements OnInit, AfterViewInit {
     dataSource = new MatTableDataSource<Mascota>();
     loading = false;
 
-    @ViewChild(MatPaginator) paginator!: MatPaginator;
     @ViewChild(MatSort) sort!: MatSort;
 
     constructor(
@@ -40,12 +38,6 @@ export class ListadoMascotasComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit(): void {
-        this.dataSource.paginator = this.paginator;
-        if (this.dataSource.data.length > 0) {
-             this.paginator._intl.itemsPerPageLabel = 'Items'
-            }
-        this.paginator._intl.itemsPerPageLabel = 'Items'
-        this.dataSource.sort = this.sort;
     }
 
     applyFilter(event: Event) {

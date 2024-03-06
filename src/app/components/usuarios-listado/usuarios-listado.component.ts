@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Usuario } from '../../interfaces/usuario';
 import { UsuarioService } from '../../services/usuario.service';
-import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -20,7 +19,6 @@ export class UsuariosListadoComponent implements OnInit, AfterViewInit {
     dataSource = new MatTableDataSource<Usuario>(elementosUsuarios);
     loading = false;
 
-    @ViewChild(MatPaginator) paginator!: MatPaginator;
     @ViewChild(MatSort) sort!: MatSort;
 
     constructor(private _snackBar: MatSnackBar, private _usuarioService: UsuarioService, private auth:AuthenticationService, private router:Router) {
@@ -31,11 +29,6 @@ export class UsuariosListadoComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit(): void {
-        this.dataSource.paginator = this.paginator;
-        if(this.dataSource.data.length > 0){
-            this.paginator._intl.itemsPerPageLabel = 'Items'
-        }
-        this.dataSource.sort = this.sort;
     }
 
 
