@@ -19,6 +19,7 @@ import { AgregarEditarUsuarioComponent } from './components/agregar-editar-usuar
 import { MatSelectModule } from '@angular/material/select';
 import { PermissionsService } from './guards/administrador.guard';
 import { UserService } from './guards/user.guard';
+import { MiusuarioComponent } from './components/miusuario/miusuario.component';
 
 @NgModule({
     declarations: [
@@ -31,6 +32,7 @@ import { UserService } from './guards/user.guard';
         DashboardComponent,
         AgregarEditarUsuarioComponent,
         VerUsuarioComponent,
+        MiusuarioComponent,
     ],
     imports: [
         BrowserModule,

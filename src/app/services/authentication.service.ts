@@ -70,6 +70,10 @@ export class AuthenticationService {
     return localStorage.getItem('Role');
   }
 
+  getUserId(){
+    return localStorage.getItem('Id');
+  }
+
   isAdmin(){
     return this.getUserRole() == 'Administrador'
   }

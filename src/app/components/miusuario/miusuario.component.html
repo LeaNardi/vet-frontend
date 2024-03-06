@@ -1,0 +1,67 @@
+<body class="pagina">
+    <img src="assets/logovet.jpg" alt="Logo" class="logo">
+
+    <div>
+        <h1 class="Agregado"> {{ operacion }} USUARIO </h1>
+    </div>
+
+    <app-progress *ngIf="loading"> </app-progress>
+
+    <div class="container">
+        <mat-card class="card">
+            <mat-card-subtitle class="Subtitle">Datos del usuario</mat-card-subtitle>
+            <form [formGroup]="form" (ngSubmit)="editarUsuario()">
+                <mat-grid-list cols="2" rowHeight="80px">
+                    <mat-grid-tile>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Nombre</mat-label>
+                            <input matInput placeholder="Nombre" autocomplete="off" formControlName="nombre">
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Apellido</mat-label>
+                            <input matInput placeholder="Apellido" autocomplete="off" formControlName="apellido">
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Usuario</mat-label>
+                            <input matInput placeholder="Usuario" autocomplete="off" formControlName="usuario">
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input matInput placeholder="Email" autocomplete="off" formControlName="email">
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Rol</mat-label>
+                            <mat-select formControlName="rol">
+                                <mat-option value="Administrador">Administrador</mat-option>
+                                <mat-option value="Secretario">Secretario</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Contraseña</mat-label>
+                            <input matInput placeholder="Contraseña" autocomplFete="off" formControlName="contrasena">
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile [colspan]="2">
+                        <button mat-raised-button color="primary" class="Aceptar" type="submit"
+                            [disabled]="form.invalid">Guardar</button>
+                        <button mat-raised-button color="primary" routerLink="/dashboard"
+                            class="Volver">Volver</button>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+            </form>
+        </mat-card>
+
+    </div>
+
+</body>
