@@ -18,7 +18,7 @@ export class MiusuarioComponent implements OnInit{
   loading: boolean = false;
   form: FormGroup;
   id: string | undefined;
-  operacion: string = "AGREGAR";
+
 
   constructor(private fb: FormBuilder,
       private _usuarioService: UsuarioService,
