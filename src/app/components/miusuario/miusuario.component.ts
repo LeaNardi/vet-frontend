@@ -85,6 +85,8 @@ export class MiusuarioComponent implements OnInit{
                   rol: data.role,
                   contrasena: "********",
               })
+              this.form.get('usuario')?.disable();
+              this.form.get('rol')?.disable();
               this.loading = false;
           },
           error: (e) => this.loading = false,
